@@ -46,6 +46,6 @@ app.*.map.json
 /pb_data/
 
 # generated files
-**/*.g.dart
-**/*.gr.dart
-**/*.mappable.dart
+*.g.dart
+*.gr.dart
+*.mappable.dart
