@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gifter/app/router.dart';
+import 'package:gifter/authentication/authentication_provider.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class App extends ConsumerWidget {
@@ -9,6 +10,13 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
+
+    ref.listen(authenticationProvider, (prev, next) async {
+      if (prev != next) {
+        await router.reevaluateGuards();
+      }
+    });
+
     return ShadApp.router(
       routerConfig: router.config(),
       theme: ShadThemeData(

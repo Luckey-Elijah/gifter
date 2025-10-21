@@ -11,6 +11,22 @@
 part of 'router.dart';
 
 /// generated route for
+/// [AuthenticationPage]
+class AuthenticationRoute extends PageRouteInfo<void> {
+  const AuthenticationRoute({List<PageRouteInfo>? children})
+    : super(AuthenticationRoute.name, initialChildren: children);
+
+  static const String name = 'AuthenticationRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AuthenticationPage();
+    },
+  );
+}
+
+/// generated route for
 /// [GroupListPage]
 class GroupListRoute extends PageRouteInfo<void> {
   const GroupListRoute({List<PageRouteInfo>? children})
@@ -54,6 +70,22 @@ class ProfileRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ProfilePage();
+    },
+  );
+}
+
+/// generated route for
+/// [SignupPage]
+class SignupRoute extends PageRouteInfo<void> {
+  const SignupRoute({List<PageRouteInfo>? children})
+    : super(SignupRoute.name, initialChildren: children);
+
+  static const String name = 'SignupRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SignupPage();
     },
   );
 }

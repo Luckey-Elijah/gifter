@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'router.dart';
+part of 'pocketbase.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,43 +9,43 @@ part of 'router.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(router)
-const routerProvider = RouterProvider._();
+@ProviderFor(pocketbase)
+const pocketbaseProvider = PocketbaseProvider._();
 
-final class RouterProvider
-    extends $FunctionalProvider<Raw<AppRouter>, Raw<AppRouter>, Raw<AppRouter>>
-    with $Provider<Raw<AppRouter>> {
-  const RouterProvider._()
+final class PocketbaseProvider
+    extends $FunctionalProvider<PocketBase, PocketBase, PocketBase>
+    with $Provider<PocketBase> {
+  const PocketbaseProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'routerProvider',
+        name: r'pocketbaseProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$routerHash();
+  String debugGetCreateSourceHash() => _$pocketbaseHash();
 
   @$internal
   @override
-  $ProviderElement<Raw<AppRouter>> $createElement($ProviderPointer pointer) =>
+  $ProviderElement<PocketBase> $createElement($ProviderPointer pointer) =>
       $ProviderElement(pointer);
 
   @override
-  Raw<AppRouter> create(Ref ref) {
-    return router(ref);
+  PocketBase create(Ref ref) {
+    return pocketbase(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(Raw<AppRouter> value) {
+  Override overrideWithValue(PocketBase value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<Raw<AppRouter>>(value),
+      providerOverride: $SyncValueProvider<PocketBase>(value),
     );
   }
 }
 
-String _$routerHash() => r'a37142b589c65ed9cbe35e64f3dbf10b65e00551';
+String _$pocketbaseHash() => r'3c0378c502f1a9251a95c4cfe95b56835b2cd1c0';
