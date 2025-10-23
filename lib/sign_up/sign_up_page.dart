@@ -21,6 +21,17 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(signUpControllerProvider);
     final enabled = !state.isLoading;
+
+    String? emailError;
+    String? passwordError;
+    String? confirmError;
+
+    if (state case AsyncData(:final value)) {
+      if (value.email.isNotEmpty) emailError = value.email.join('\n');
+      if (value.password.isNotEmpty) passwordError = value.password.join('\n');
+      if (value.confirm.isNotEmpty) confirmError = value.confirm.join('\n');
+    }
+
     return ShadCard(
       backgroundColor: ShadTheme.of(context).colorScheme.background,
       child: ShadForm(
@@ -43,17 +54,20 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
               id: #email,
               placeholder: const Text('email'),
               enabled: enabled,
+              forceErrorText: emailError,
             ),
             ShadInputFormField(
               id: #password,
               obscureText: true,
               placeholder: const Text('password'),
               enabled: enabled,
+              forceErrorText: passwordError,
             ),
             ShadInputFormField(
               id: #confirm,
               obscureText: true,
               placeholder: const Text('confirm'),
+              forceErrorText: confirmError,
               enabled: enabled,
             ),
             Row(

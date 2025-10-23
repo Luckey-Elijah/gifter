@@ -33,7 +33,7 @@ final class SignUpControllerProvider
   SignUpController create() => SignUpController();
 }
 
-String _$signUpControllerHash() => r'2c624e1a11a8138aa5889338b97a4c9ad046be8a';
+String _$signUpControllerHash() => r'2f8957c3017a60341e342fd21d9a6ae004bc814b';
 
 abstract class _$SignUpController extends $AsyncNotifier<SignUpErrors> {
   FutureOr<SignUpErrors> build();

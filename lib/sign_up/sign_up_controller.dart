@@ -9,7 +9,7 @@ part 'sign_up_controller.mapper.dart';
 @riverpod
 class SignUpController extends _$SignUpController {
   @override
-  Future<SignUpErrors> build() => Future(SignUpErrors.empty);
+  Future<SignUpErrors> build() => Future.value(const SignUpErrors.empty());
 
   Future<void> signUp({
     required String? email,

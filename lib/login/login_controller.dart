@@ -20,6 +20,7 @@ class LoginController extends _$LoginController {
     if (email == null || email.isEmpty) {
       value = value.copyWith.email.add('Email cannot be empty.');
     }
+
     if (password == null || password.isEmpty) {
       value = value.copyWith.password.add('Password cannot be empty.');
     }

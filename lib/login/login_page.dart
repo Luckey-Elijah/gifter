@@ -22,6 +22,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(loginControllerProvider);
     final enabled = !state.isLoading;
+
+    String? emailError;
+    String? passwordError;
+
+    if (state case AsyncData(:final value)) {
+      if (value.email.isNotEmpty) emailError = value.email.join('\n');
+      if (value.password.isNotEmpty) passwordError = value.password.join('\n');
+    }
+
     return ShadCard(
       backgroundColor: ShadTheme.of(context).colorScheme.background,
       child: ShadForm(
@@ -46,11 +55,18 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     icon: const Icon(LucideIcons.circleAlert),
                   ),
               ],
-              ShadInputFormField(id: #email, enabled: enabled, placeholder: const Text('email')),
+              ShadInputFormField(
+                id: #email,
+                enabled: enabled,
+                forceErrorText: emailError,
+                placeholder: const Text('email'),
+              ),
               ShadInputFormField(
                 id: #password,
                 enabled: enabled,
                 obscureText: obscure,
+                forceErrorText: passwordError,
+
                 placeholder: const Text('password'),
                 trailing: ShadGestureDetector(
                   child: Icon(obscure ? LucideIcons.eyeClosed : LucideIcons.eye),
