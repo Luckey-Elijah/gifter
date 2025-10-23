@@ -32,7 +32,6 @@ class AuthenticationRepository {
       'passwordConfirm': passwordConfirm,
     };
     await _pocketBase.collection('users').create(body: body);
-    await login(email: email, password: password);
   }
 
   bool authenticated() {

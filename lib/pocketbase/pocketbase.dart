@@ -7,5 +7,5 @@ part 'pocketbase.g.dart';
 
 @riverpod
 PocketBase pocketbase(Ref ref) {
-  return PocketBase(' http://127.0.0.1:8090/');
+  return PocketBase('http://127.0.0.1:8090/');
 }

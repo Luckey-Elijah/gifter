@@ -59,6 +59,22 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute({List<PageRouteInfo>? children})
+    : super(LoginRoute.name, initialChildren: children);
+
+  static const String name = 'LoginRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LoginPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ProfilePage]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})
@@ -75,17 +91,17 @@ class ProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SignupPage]
-class SignupRoute extends PageRouteInfo<void> {
-  const SignupRoute({List<PageRouteInfo>? children})
-    : super(SignupRoute.name, initialChildren: children);
+/// [SignUpPage]
+class SignUpRoute extends PageRouteInfo<void> {
+  const SignUpRoute({List<PageRouteInfo>? children})
+    : super(SignUpRoute.name, initialChildren: children);
 
-  static const String name = 'SignupRoute';
+  static const String name = 'SignUpRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const SignupPage();
+      return const SignUpPage();
     },
   );
 }

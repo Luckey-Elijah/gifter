@@ -4,8 +4,9 @@ import 'package:gifter/authentication/authentication_page.dart';
 import 'package:gifter/authentication/authentication_repository.dart';
 import 'package:gifter/group_list/group_list_page.dart';
 import 'package:gifter/home/home_page.dart';
+import 'package:gifter/login/login_page.dart';
 import 'package:gifter/profile/profile_page.dart';
-import 'package:gifter/signup/signup_page.dart';
+import 'package:gifter/sign_up/sign_up_page.dart';
 import 'package:gifter/wishlist/wishlist_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -13,7 +14,10 @@ part 'router.g.dart';
 part 'router.gr.dart';
 
 @riverpod
-Raw<AppRouter> router(Ref ref) => AppRouter(authenticated: ref.read(authenticationRepositoryProvider).authenticated);
+Raw<AppRouter> router(Ref ref) {
+  final authenticated = ref.watch(authenticationRepositoryProvider).authenticated;
+  return AppRouter(authenticated: authenticated);
+}
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
@@ -22,11 +26,16 @@ class AppRouter extends RootStackRouter {
   final ValueGetter<bool> _authenticated;
 
   @override
+  @override
   List<AutoRoute> get routes => [
     AutoRoute.guarded(
       onNavigation: _onAuthNavigation,
       page: AuthenticationRoute.page,
-      children: [AutoRoute(page: SignupRoute.page)],
+      path: '/auth',
+      children: [
+        AutoRoute(page: SignUpRoute.page, path: 'signup'),
+        AutoRoute(page: LoginRoute.page, initial: true, path: 'login'),
+      ],
     ),
     AutoRoute.guarded(
       onNavigation: _onHomeNavigation,
@@ -34,18 +43,9 @@ class AppRouter extends RootStackRouter {
       initial: true,
       page: HomeRoute.page,
       children: [
-        AutoRoute(
-          page: WishlistRoute.page,
-          path: 'wishlist',
-        ),
-        AutoRoute(
-          page: GroupListRoute.page,
-          path: 'groups',
-        ),
-        AutoRoute(
-          page: ProfileRoute.page,
-          path: 'profile',
-        ),
+        AutoRoute(page: WishlistRoute.page, path: 'wishlist'),
+        AutoRoute(page: GroupListRoute.page, path: 'groups'),
+        AutoRoute(page: ProfileRoute.page, path: 'profile'),
       ],
     ),
   ];
