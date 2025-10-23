@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:gifter/authentication/authentication_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -47,7 +48,11 @@ class SignUpController extends _$SignUpController {
         );
         await repo.login(email: email, password: password);
       } on Exception catch (e, s) {
-        state = AsyncError(e, s);
+        state = AsyncData(
+          SignUpErrors(
+            top: ['$e', if (kDebugMode) '$s'],
+          ),
+        );
       }
     }
   }
@@ -56,10 +61,10 @@ class SignUpController extends _$SignUpController {
 @MappableClass()
 class SignUpErrors with SignUpErrorsMappable {
   SignUpErrors({
-    required this.top,
-    required this.email,
-    required this.password,
-    required this.confirm,
+    this.top = const [],
+    this.email = const [],
+    this.password = const [],
+    this.confirm = const [],
   });
 
   const SignUpErrors.empty() : top = const [], email = const [], password = const [], confirm = const [];

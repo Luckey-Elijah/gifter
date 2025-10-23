@@ -22,21 +22,32 @@ class SignUpErrorsMapper extends ClassMapperBase<SignUpErrors> {
   final String id = 'SignUpErrors';
 
   static List<String> _$top(SignUpErrors v) => v.top;
-  static const Field<SignUpErrors, List<String>> _f$top = Field('top', _$top);
+  static const Field<SignUpErrors, List<String>> _f$top = Field(
+    'top',
+    _$top,
+    opt: true,
+    def: const [],
+  );
   static List<String> _$email(SignUpErrors v) => v.email;
   static const Field<SignUpErrors, List<String>> _f$email = Field(
     'email',
     _$email,
+    opt: true,
+    def: const [],
   );
   static List<String> _$password(SignUpErrors v) => v.password;
   static const Field<SignUpErrors, List<String>> _f$password = Field(
     'password',
     _$password,
+    opt: true,
+    def: const [],
   );
   static List<String> _$confirm(SignUpErrors v) => v.confirm;
   static const Field<SignUpErrors, List<String>> _f$confirm = Field(
     'confirm',
     _$confirm,
+    opt: true,
+    def: const [],
   );
 
   @override

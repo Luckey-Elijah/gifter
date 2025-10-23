@@ -32,6 +32,13 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
           children: [
             const Header1('Gifter'),
             const Header3('Sign Up'),
+            if (state case AsyncData(:final value) when value.top.isNotEmpty) ...[
+              for (final error in value.top)
+                ShadAlert.destructive(
+                  title: Text(error),
+                  icon: const Icon(LucideIcons.circleAlert),
+                ),
+            ],
             ShadInputFormField(
               id: #email,
               placeholder: const Text('email'),

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sign_up_controller.dart';
+part of 'login_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,44 +9,44 @@ part of 'sign_up_controller.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(SignUpController)
-const signUpControllerProvider = SignUpControllerProvider._();
+@ProviderFor(LoginController)
+const loginControllerProvider = LoginControllerProvider._();
 
-final class SignUpControllerProvider
-    extends $AsyncNotifierProvider<SignUpController, SignUpErrors> {
-  const SignUpControllerProvider._()
+final class LoginControllerProvider
+    extends $AsyncNotifierProvider<LoginController, LoginErrors> {
+  const LoginControllerProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'signUpControllerProvider',
+        name: r'loginControllerProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$signUpControllerHash();
+  String debugGetCreateSourceHash() => _$loginControllerHash();
 
   @$internal
   @override
-  SignUpController create() => SignUpController();
+  LoginController create() => LoginController();
 }
 
-String _$signUpControllerHash() => r'2c624e1a11a8138aa5889338b97a4c9ad046be8a';
+String _$loginControllerHash() => r'694a8582c70b975f8c981c5cfb85b67a698bfb2d';
 
-abstract class _$SignUpController extends $AsyncNotifier<SignUpErrors> {
-  FutureOr<SignUpErrors> build();
+abstract class _$LoginController extends $AsyncNotifier<LoginErrors> {
+  FutureOr<LoginErrors> build();
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build();
-    final ref = this.ref as $Ref<AsyncValue<SignUpErrors>, SignUpErrors>;
+    final ref = this.ref as $Ref<AsyncValue<LoginErrors>, LoginErrors>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<SignUpErrors>, SignUpErrors>,
-              AsyncValue<SignUpErrors>,
+              AnyNotifier<AsyncValue<LoginErrors>, LoginErrors>,
+              AsyncValue<LoginErrors>,
               Object?,
               Object?
             >;
